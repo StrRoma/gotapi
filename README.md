@@ -14,10 +14,10 @@ import (
     https://github.com/StrRoma/gotapi
 )
 
-const exchange = "exchange" // Name of exchnage (check exchnage list)
-const apiKey = "apiKey" // Your Api Open key (depends on exchange, check exchnage list) 
-const apiSecret = "apiSecret" // Your Api Secret key (depends on exchange, check exchnage list)
-const accountID = "accountID" // Your Api additional information (depends on exchange, check exchnage list)
+const exchange = "exchange" // Name of exchnage (check exchange list)
+const apiKey = "apiKey" // Your Api Open key (depends on exchange, check exchange list) 
+const apiSecret = "apiSecret" // Your Api Secret key (depends on exchange, check exchange list)
+const accountID = "accountID" // Your Api additional information (depends on exchange, check exchange list)
 
 var apiClient = gotapi.Init(exchange, apiKey, apiSecret, accountID)
 ```
