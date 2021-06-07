@@ -2,7 +2,7 @@ package apiclient
 
 import "io"
 
-//APIClient interface for all excahnge api
+//APIClient interface for all exchange api
 type APIClient interface {
 	// INIT
 
@@ -112,7 +112,7 @@ type APIClient interface {
 	/* Get information about order.
 	 *
 	 * arguments:
-	 *   symbol  pair text-id in apiclient format, not required argument (depends on exchnage)
+	 *   symbol  pair text-id in apiclient format, not required argument (depends on exchange)
 	 * 		(example "USDT_BTC" main currency on the left, on the right is the currency that we buy when calling Buy)
 	 *   id       MakedOrder.ID
 	 *
@@ -154,7 +154,7 @@ type APIClient interface {
 	/* Cancel order.
 	 *
 	 * arguments:
-	 *   symbol   pair text-id in apiclient format, not required argument (depends on exchnage)
+	 *   symbol   pair text-id in apiclient format, not required argument (depends on exchange)
 	 * 		(example "USDT_BTC" main currency on the left, on the right is the currency that we buy when calling Buy)
 	 *   id       MakedOrder.ID
 	 *
@@ -166,7 +166,7 @@ type APIClient interface {
 	/* Cancel all open orders on symbol.
 	 *
 	 * arguments:
-	 *   symbol   pair text-id in apiclient format, not required argument (depends on exchnage)
+	 *   symbol   pair text-id in apiclient format, not required argument (depends on exchange)
 	 * 		(example "USDT_BTC" main currency on the left, on the right is the currency that we buy when calling Buy)
 	 *
 	 * returns:
