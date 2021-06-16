@@ -209,7 +209,7 @@ type APIClient interface {
 	 */
 	GetMyOrderHistory(symbol string, period string) (*[]MakedOrder, error)
 
-	/* Creates a withdrawal request.
+	/* Creates a withdraw request.
 	 *
 	 * arguments:
 	 *   asset     currency id in string format: <raw-line, uppercase> (BTC)
@@ -222,6 +222,20 @@ type APIClient interface {
 	 *   err   error
 	 */
 	Withdraw(asset string, address string, amount float64, chain string) (id string, err error)
+	
+	/* Get withdraw list.
+	 *
+	 * returns:
+	 *   Returns a pointer to an array of apiclient.Transfer structure and error.
+	 */
+	GetWithdrawList() (*[]Transfer, err error)
+	
+	/* Get deposit list.
+	 *
+	 * returns:
+	 *   Returns a pointer to an array of apiclient.Transfer structure and error.
+	 */
+	GetDepositList() (*[]Transfer, err error)
 }
 
 //Status type for enum about order status
@@ -267,6 +281,8 @@ type Order struct {
 
 //MakedOrder help struct for APIClient
 type MakedOrder struct {
+	Time   int64   `json:"time"` // UNIX time in seconds (10 digits)
+	
 	ID string `json:"id"`
 
 	Status Status `json:"status"` // Status Should be one of apiclient.Status constants(Filled, NotFilled, PartiallyFilled, Undefined)
@@ -308,10 +324,6 @@ type VolumeCandle struct {
 	Color Color   `json:"color"` // apiclient.Green if Close > Open, apiclient.Red if Close < Open
 }
 
-type TradeHistory struct {
-	History []Trade `json:"history"`
-}
-
 type Trade struct {
 	Time   int64   `json:"time"` // UNIX time in seconds (10 digits)
 	Amount float64 `json:"amount"`
@@ -335,4 +347,11 @@ type MarketData struct {
 	MaxBuy          float64 `json:"maxBuy"`
 	DayPriceHigh    float64 `json:"dayPriceHigh"`
 	DayPriceLow     float64 `json:"dayPriceLow"`
+}
+
+type Transfer struct {
+	Time     int64   `json:"time"` // UNIX time in seconds (10 digits)
+	Amount   float64 `json:"amount"`
+	Currency string  `json:"currency"`
+	Txid     string  `json:"txid"`
 }
