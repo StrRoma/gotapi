@@ -107,7 +107,7 @@ type APIClient interface {
 	 * returns:
 	 *   Returns a pointer to the implementation balance map and error.
 	 */
-	GetBalances() (*map[string]Balance, error)
+	GetBalances() (*map[string]Balance, error) 
 
 	/* Get information about order.
 	 *
