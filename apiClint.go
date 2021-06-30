@@ -355,3 +355,9 @@ type Transfer struct {
 	Currency string  `json:"currency"`
 	Txid     string  `json:"txid"`
 }
+
+type DebugStr struct {
+	lastRequestMethod string
+	lastResponseData  []byte
+	lastSentData      []byte
+}
